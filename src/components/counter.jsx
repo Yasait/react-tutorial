@@ -1,6 +1,17 @@
 import React, { Component } from "react";
 
 class Counter extends React.Component {
+  componentDidUpdate(prevProps, prevState) {
+    console.log("prevProps", prevProps);
+    console.log("prevState", prevState);
+    if (prevProps.counter.value !== this.props.counter.value) {
+      // Ajax call and get new data from the server
+    }
+  }
+
+  componentWillUnmount() {
+    console.log("Counter - Unmount");
+  }
   //   constructor() {
   //     super();
   //     this.handleIncrement = this.handleIncrement.bind(this);
@@ -19,7 +30,8 @@ class Counter extends React.Component {
   // };
 
   render() {
-    console.log("props", this.props);
+    //console.log("props", this.props);
+    console.log("Counter - Rendered");
     return (
       <div>
         <h4>{this.props.counter.id}</h4>
